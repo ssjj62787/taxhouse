@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+build/*.exe
+dist/
+*.spec.bak
+*.xlsx
+!sample_data/*.xlsx
+.DS_Store
+*.egg-info/
