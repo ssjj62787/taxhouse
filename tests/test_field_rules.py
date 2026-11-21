@@ -17,6 +17,12 @@ def test_extract_address():
     assert f.confidence == "확인"
 
 
+def test_extract_address_does_not_bleed_into_next_line():
+    text = "소재지: 서울특별시 강남구 역삼동 123-45\n전용면적 84.95㎡\n"
+    f = field_rules.extract_address(text, "contract.pdf")
+    assert f.value == "서울특별시 강남구 역삼동 123-45"
+
+
 def test_extract_area():
     f = field_rules.extract_area(SAMPLE_CONTRACT, "contract.pdf")
     assert "84.95" in f.value
